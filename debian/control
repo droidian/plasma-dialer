@@ -1,0 +1,41 @@
+Source: plasma-dialer
+Section: kde
+Priority: optional
+Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
+Uploaders: Marco Mattiolo <marco.mattiolo@hotmail.it>
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               extra-cmake-modules,
+               libcallaudio-dev,
+               libkf5contacts-dev,
+               libkf5coreaddons-dev,
+               libkf5dbusaddons-dev,
+               libkf5i18n-dev,
+               libkf5kio-dev,
+               libkf5notifications-dev,
+               libkf5people-dev,
+               libkf5pulseaudioqt-dev,
+               libmpris-qt5-dev,
+               libphonenumber-dev,
+               libpulse-dev,
+               libqt5waylandclient5-dev,
+               libwayland-dev,
+               modemmanager-qt-dev,
+               pkg-kde-tools,
+               plasma-wayland-protocols,
+               qtbase5-dev,
+               qtbase5-private-dev,
+               qtdeclarative5-dev,
+               qtfeedback5-dev,
+               qtquickcontrols2-5-dev,
+               qtwayland5-dev-tools,
+               qtwayland5-private-dev
+Standards-Version: 4.6.1
+Homepage: https://invent.kde.org/plasma-mobile/plasma-dialer
+Rules-Requires-Root: no
+
+Package: plasma-dialer
+Architecture: any
+Depends: callaudiod, ${misc:Depends}, ${shlibs:Depends}
+Description: Dialer for Plasma Mobile
+ Kirigami-based GUI application and background daemons: Dialer for Plasma Mobile

@@ -1,0 +1,4 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with kf5,pkgkde_symbolshelper,sodeps --buildsystem kf5 --without build_stamp
