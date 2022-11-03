@@ -1,2 +1,2 @@
 version=3
-https://download.kde.org/stable/plasma-mobile/(.*)/plasma-dialer-(.*)\.(?:tar.gz|tar.bz2|tar.xz)
+https://download.kde.org/stable/plasma-mobile/([\d.]+)/plasma-dialer-([\d.]+)\.(?:tar.gz|tar.bz2|tar.xz)
