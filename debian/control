@@ -27,7 +27,7 @@ Build-Depends: cmake (>= 3.16~),
                plasma-wayland-protocols (>= 1.8~),
                qtbase5-dev (>= 5.15.2~),
                qtdeclarative5-dev (>= 5.15.2~),
-               qtfeedback5-dev (>= 5.15.2~),
+               qtfeedback5-dev,
                qtquickcontrols2-5-dev (>= 5.15.2~),
                qtwayland5-dev-tools,
 Standards-Version: 4.6.2
