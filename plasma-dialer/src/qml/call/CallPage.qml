@@ -13,6 +13,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.telephony 1.0
+import org.kde.phone.dialer 1.0 // Config
 
 import "../dialpad"
 
@@ -28,7 +29,8 @@ Kirigami.Page {
 
     property bool callIncoming: ActiveCallModel.incoming
     property bool callActive: ActiveCallModel.active
-    property int callDuration: ActiveCallModel.callDuration
+    property int callDuration: ActiveCallModel.duration
+    property string callCommunicationWith: ActiveCallModel.communicationWith
     
     title: i18n("Active call list")
 
@@ -86,9 +88,9 @@ Kirigami.Page {
             horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
             font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.15
-            text: ContactUtils.displayString("")
+            text: ContactUtils.displayString(callCommunicationWith)
             font.bold: true
-            visible: text != ""
+            visible: callActive
         }
         
         // time spent on call
@@ -99,13 +101,16 @@ Kirigami.Page {
             verticalAlignment: Qt.AlignVCenter
             font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.1
             text: {
-                if (callActive) {
-                    return i18n("Calling...");
-                } else if (callDuration > 0) {
-                    return secondsToTimeString(callDuration);
-                } else {
-                    return '';
+                if (callDuration > 0) {
+                    return secondsToTimeString(callDuration)
                 }
+                if (callIncoming) {
+                    return i18n("Incoming...")
+                }
+                if (callActive) {
+                    return i18n("Calling...")
+                }
+                return ''
             }
             visible: text !== ""
         }
@@ -173,14 +178,39 @@ Kirigami.Page {
             Layout.minimumHeight: Kirigami.Units.gridUnit * 3.5
             Layout.fillWidth: true
 
-            AnswerSwipe {
+            Loader {
+                id: answerControlLoader
                 anchors.fill: parent
-                visible: callIncoming
-                onAccepted: {
-                    CallUtils.accept(activeDeviceUni(), activeCallUni());
+                active: callIncoming
+                sourceComponent: (Config.answerControl === 2) ?
+                                     asymmetricAnswerSwipe
+                                   : (Config.answerControl === 1) ?
+                                         symmetricAnswerSwipe
+                                       : answerButtons
+
+                Connections {
+                    target: answerControlLoader.item
+                    function onAccepted() {
+                        CallUtils.accept(activeDeviceUni(), activeCallUni());
+                    }
+                    function onRejected() {
+                        CallUtils.hangUp(activeDeviceUni(), activeCallUni());
+                    }
                 }
-                onRejected: {
-                    CallUtils.hangUp(activeDeviceUni(), activeCallUni());
+
+                Component {
+                    id: answerButtons
+                    AnswerButtons {}
+                }
+
+                Component {
+                    id: symmetricAnswerSwipe
+                    SymmetricAnswerSwipe {}
+                }
+
+                Component {
+                    id: asymmetricAnswerSwipe
+                    AsymmetricAnswerSwipe {}
                 }
             }
             
