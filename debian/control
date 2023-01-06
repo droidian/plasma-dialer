@@ -30,6 +30,7 @@ Build-Depends: cmake (>= 3.16~),
                qtfeedback5-dev,
                qtquickcontrols2-5-dev (>= 5.15.2~),
                qtwayland5-dev-tools,
+               qtwayland5-private-dev,
 Standards-Version: 4.6.2
 Homepage: https://invent.kde.org/plasma-mobile/plasma-dialer
 Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/plasma-dialer
