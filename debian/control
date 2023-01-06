@@ -3,39 +3,46 @@ Section: kde
 Priority: optional
 Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
 Uploaders: Marco Mattiolo <marco.mattiolo@hotmail.it>
-Build-Depends: cmake,
+Build-Depends: cmake (>= 3.16~),
                debhelper-compat (= 13),
-               extra-cmake-modules,
-               libcallaudio-dev,
-               libkf5contacts-dev,
-               libkf5coreaddons-dev,
-               libkf5dbusaddons-dev,
-               libkf5i18n-dev,
-               libkf5kio-dev,
-               libkf5notifications-dev,
-               libkf5people-dev,
-               libkf5pulseaudioqt-dev,
-               libmpris-qt5-dev,
+               extra-cmake-modules (>= 5.89.0~),
+               kirigami-addons-dev (>= 0.6~),
+               libcallaudio-dev (>= 0.1.4~),
+               libkf5config-dev (>= 5.89.0~),
+               libkf5contacts-dev (>= 5.89.0~),
+               libkf5coreaddons-dev (>= 5.89.0~),
+               libkf5dbusaddons-dev (>= 5.89.0~),
+               libkf5i18n-dev (>= 5.89.0~),
+               libkf5kio-dev (>= 5.89.0~),
+               libkf5notifications-dev (>= 5.89.0~),
+               libkf5people-dev (>= 5.89.0~),
+               libkf5windowsystem-dev (>= 5.89.0~),
                libphonenumber-dev,
-               libpulse-dev,
-               libqt5waylandclient5-dev,
+               libqt5waylandclient5-dev (>= 5.15.2~),
                libwayland-dev,
-               modemmanager-qt-dev,
+               modemmanager-qt-dev (>= 5.89.0~),
+               pkg-config,
                pkg-kde-tools,
-               plasma-wayland-protocols,
-               qtbase5-dev,
-               qtbase5-private-dev,
-               qtdeclarative5-dev,
-               qtfeedback5-dev,
-               qtquickcontrols2-5-dev,
+               plasma-wayland-protocols (>= 1.8~),
+               qtbase5-dev (>= 5.15.2~),
+               qtdeclarative5-dev (>= 5.15.2~),
+               qtfeedback5-dev (>= 5.15.2~),
+               qtquickcontrols2-5-dev (>= 5.15.2~),
                qtwayland5-dev-tools,
-               qtwayland5-private-dev
-Standards-Version: 4.6.1
+Standards-Version: 4.6.2
 Homepage: https://invent.kde.org/plasma-mobile/plasma-dialer
+Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/plasma-dialer
+Vcs-Git: https://salsa.debian.org/DebianOnMobile-team/plasma-dialer.git
 Rules-Requires-Root: no
 
 Package: plasma-dialer
 Architecture: any
 Depends: callaudiod, ${misc:Depends}, ${shlibs:Depends}
 Description: Dialer for Plasma Mobile
- Kirigami-based GUI application and background daemons: Dialer for Plasma Mobile
+ This application aims at enabling voice calls features inside
+ a Plasma Mobile environment.
+ .
+ It is based on Qt graphical libraries and relies on some KDE
+ Frameworks. It depends on ModemManager in order to interface
+ with the radio device, and on Callaudio to manage audio
+ profiles during voice calls.
