@@ -132,8 +132,15 @@ int main(int argc, char **argv)
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("dialer")));
     QGuiApplication::setApplicationDisplayName(QStringLiteral("Phone"));
 
-    KAboutData aboutData(QStringLiteral("dialer"), i18n("Phone"), QStringLiteral(PLASMADIALER_VERSION_STRING), i18n("Plasma phone dialer"), KAboutLicense::GPL);
+    KAboutData aboutData(QStringLiteral("dialer"), 
+                         i18n("Phone"), 
+                         QStringLiteral(PLASMADIALER_VERSION_STRING), 
+                         i18n("Plasma phone dialer"), 
+                         KAboutLicense::GPL,
+                         i18n("© 2015-2022 KDE Community"));
+    aboutData.setBugAddress("https://bugs.kde.org/describecomponents.cgi?product=Plasma%20Mobile%20Dialer");
     aboutData.setDesktopFileName(QStringLiteral("org.kde.phone.dialer"));
+    aboutData.addAuthor(i18n("Alexey Andreyev"), QString(), QStringLiteral("aa13q@ya.ru"));
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
