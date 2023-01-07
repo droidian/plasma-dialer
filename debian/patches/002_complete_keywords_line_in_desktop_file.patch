@@ -1,0 +1,25 @@
+From edf739e1a435cfdeda7b9036086cc985bdf9c34b Mon Sep 17 00:00:00 2001
+From: Marco Mattiolo <marco.mattiolo@hotmail.it>
+Date: Thu, 5 Jan 2023 16:40:28 +0000
+Subject: [PATCH] Complete Keywords line in org.kde.phone.dialer.desktop
+
+---
+ plasma-dialer/org.kde.phone.dialer.desktop | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/plasma-dialer/org.kde.phone.dialer.desktop b/plasma-dialer/org.kde.phone.dialer.desktop
+index 26b7142..c275418 100644
+--- a/plasma-dialer/org.kde.phone.dialer.desktop
++++ b/plasma-dialer/org.kde.phone.dialer.desktop
+@@ -34,7 +34,7 @@ Comment[x-test]=xxPlasma phone dialerxx
+ Comment[zh_CN]=Plasma 电话拨号器
+ Comment[zh_TW]=Plasma 電話撥號器
+ Encoding=UTF-8
+-Keywords=
++Keywords=Telephone;Call;Phone;Dial;Dialer;PSTN;
+ Name=Phone
+ Name[az]=Telefon
+ Name[ca]=Telèfon
+-- 
+GitLab
+

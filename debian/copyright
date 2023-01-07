@@ -24,10 +24,6 @@ Files: kde-telephony-daemon/autotests/contact-mapper-test.cpp
 Copyright: 2021 Nicolas Fella <nicolas.fella@gmx.de>
 License: LicenseRef-KDE-Accepted-GPL
 
-Files: plasma-dialer/src/qml/PhoneNumberDialog.qml
-Copyright: 2021 Nicolas Fella <nicolas.fella@gmx.de>
-License: LGPL-2+
-
 Files: kde-telephony-daemon/autotests/fake-contact-source.*
 Copyright: 2013 David Edmundson <davidedmundson@kde.org>
 License: LGPL-2.1+
@@ -95,39 +91,14 @@ Copyright: 2015 Marco Martin <mart@kde.org>
            2021 Alexey Andreyev <aa13q@ya.ru>
 License: LGPL-2.1+
 
-Files: plasma-dialer/org.kde.phone.dialer.appdata.xml
-Copyright 2021 Smitty van Bodegom
-License: CC0-1.0
+Files: plasma-dialer/src/qml/PhoneNumberDialog.qml
+Copyright: 2021 Nicolas Fella <nicolas.fella@gmx.de>
+License: LGPL-2+
 
-Files: plasma-dialer/src/main.cpp
-       plasma-dialer/src/qml/call/AsymmetricAnswerSwipe.qml
+Files: plasma-dialer/src/qml/call/AsymmetricAnswerSwipe.qml
+       plasma-dialer/src/main.cpp
 Copyright: 2015 Marco Martin <mart@kde.org>
            2021-2022 Alexey Andreyev <aa13q@ya.ru>
-License: LGPL-2+
-
-Files: plasma-dialer/src/qml/AboutPage.qml
-       plasma-dialer/src/qml/components/SidebarButton.qml
-Copyright: 2021 Devin Lin <devin@kde.org>
-License: GPL-2+
- 
-Files: plasma-dialer/src/qml/ContactsPage.qml
-Copyright: 2015 Martin Klapetek <mklapetek@kde.org>
-License: LGPL-2+
- 
-Files: plasma-dialer/src/qml/HistoryPage.qml
-       plasma-dialer/src/qml/call/Avatar.qml
-       plasma-dialer/src/qml/historyHistoryDelegate.qml
-Copyright: 2015 Marco Martin <mart@kde.org>
-License: LGPL-2+
-
-Files: plasma-dialer/src/qml/ImeiSheet.qml
-Copyright: 2021 Smitty van Bodegom <me@smitop.com>
-License: LicenseRef-KDE-Accepted-GPL
-
-Files: plasma-dialer/src/qml/main.qml
-Copyright: 2014 Aaron Seigo <aseigo@kde.org>
-           2014 Marco Martin <mart@kde.org>
-           2021 Alexey Andreyev <aa13q@ya.ru>
 License: LGPL-2+
 
 Files: plasma-dialer/src/qml/call/AnswerButtons.qml
@@ -144,6 +115,21 @@ Files: plasma-dialer/src/qml/call/CallPage.qml
 Copyright: 2014 Aaron Seigo <aseigo@kde.org>
            2015 Marco Martin <mart@kde.org>
            2020 Devin Lin <espidev@gmail.com>
+License: LGPL-2+
+
+Files: plasma-dialer/src/qml/components/SidebarButton.qml
+       plasma-dialer/src/qml/AboutPage.qml
+Copyright: 2021 Devin Lin <devin@kde.org>
+License: GPL-2+
+ 
+Files: plasma-dialer/src/qml/ContactsPage.qml
+Copyright: 2015 Martin Klapetek <mklapetek@kde.org>
+License: LGPL-2+
+ 
+Files: plasma-dialer/src/qml/call/Avatar.qml
+       plasma-dialer/src/qml/history/HistoryDelegate.qml
+       plasma-dialer/src/qml/HistoryPage.qml
+Copyright: 2015 Marco Martin <mart@kde.org>
 License: LGPL-2+
 
 Files: plasma-dialer/src/qml/components/BottomToolbar.qml
@@ -164,6 +150,20 @@ Files: plasma-dialer/src/qml/settings/CallBlockSettingsPage.qml
 Copyright: 2021 Devin Lin <devin@kde.org>
            2022 Michael Lang <criticaltemp@protonmail.com>
 License: GPL-2+
+
+Files: plasma-dialer/src/qml/ImeiSheet.qml
+Copyright: 2021 Smitty van Bodegom <me@smitop.com>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: plasma-dialer/src/qml/main.qml
+Copyright: 2014 Aaron Seigo <aseigo@kde.org>
+           2014 Marco Martin <mart@kde.org>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2+
+
+Files: plasma-dialer/org.kde.phone.dialer.appdata.xml
+Copyright: 2021 Smitty van Bodegom
+License: CC0-1.0
 
 Files: po/*
 Copyright: 2020-2021 Kristóf Kiszel <kiszel.kristof@gmail.com>
@@ -245,6 +245,22 @@ License: CC0-1.0
  .
  On Debian systems, the complete text of the CC0 Public Domain
  Dedication can be found in `/usr/share/common-licenses/CC0-1.0’.
+
+License: GPL-2.0-only
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 2.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
  
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
@@ -262,6 +278,22 @@ License: GPL-2+
  .
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+ 
+License: GPL-3.0-only
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 3.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
  
 License: LGPL-2+
  This library is free software; you can redistribute it and/or
