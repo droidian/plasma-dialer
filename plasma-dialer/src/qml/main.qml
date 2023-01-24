@@ -68,7 +68,8 @@ Kirigami.ApplicationWindow {
         case "Contacts": return pagePool.loadPage("qrc:/ContactsPage.qml");
         case "Dialer": return pagePool.loadPage("qrc:/DialerPage.qml");
         case "Call": return pagePool.loadPage("qrc:/call/CallPage.qml");
-        case "Settings": return pagePool.loadPage("qrc:/SettingsPage.qml");
+        case "Settings": return pagePool.loadPage("qrc:/settings/SettingsPage.qml");
+        case "CallBlockSettings": return pagePool.loadPage("qrc:/settings/CallBlockSettingsPage.qml");
         case "About": return pagePool.loadPage("qrc:/AboutPage.qml");
         }
     }
@@ -78,6 +79,18 @@ Kirigami.ApplicationWindow {
 
     function switchToPage(page, depth) {
         while (pageStack.depth > depth) pageStack.pop()
+            
+        // page switch animation
+        yAnim.target = page;
+        yAnim.properties = "yTranslate";
+        anim.target = page;
+        anim.properties = "contentItem.opacity";
+        if (page.header) {
+            anim.properties += ",header.opacity";
+        }
+        yAnim.restart();
+        anim.restart();
+            
         pageStack.push(page)
         page.forceActiveFocus()
     }
@@ -124,6 +137,22 @@ Kirigami.ApplicationWindow {
         // initial page and nav type
         switchToPage(getPage("Dialer"), 1);
         changeNav(isWidescreen);
+    }
+    
+    // page switch animation
+    NumberAnimation {
+        id: anim
+        from: 0
+        to: 1
+        duration: Kirigami.Units.longDuration * 2
+        easing.type: Easing.InOutQuad
+    }
+    NumberAnimation {
+        id: yAnim
+        from: Kirigami.Units.gridUnit * 3
+        to: 0
+        duration: Kirigami.Units.longDuration * 3
+        easing.type: Easing.OutQuint
     }
 
     Loader {

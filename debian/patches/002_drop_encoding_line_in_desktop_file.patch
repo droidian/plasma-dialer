@@ -1,0 +1,24 @@
+From 5e4009e5d785318b8a338d2ccde588a5672edf26 Mon Sep 17 00:00:00 2001
+From: Marco Mattiolo <marco.mattiolo@hotmail.it>
+Date: Sat, 7 Jan 2023 10:10:54 +0000
+Subject: [PATCH] Drop Encoding= line in org.kde.phone.dialer.desktop
+
+---
+ plasma-dialer/org.kde.phone.dialer.desktop | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/plasma-dialer/org.kde.phone.dialer.desktop b/plasma-dialer/org.kde.phone.dialer.desktop
+index 26b7142..a95107a 100644
+--- a/plasma-dialer/org.kde.phone.dialer.desktop
++++ b/plasma-dialer/org.kde.phone.dialer.desktop
+@@ -33,7 +33,6 @@ Comment[vi]=Trình quay số điện thoại Plasma
+ Comment[x-test]=xxPlasma phone dialerxx
+ Comment[zh_CN]=Plasma 电话拨号器
+ Comment[zh_TW]=Plasma 電話撥號器
+-Encoding=UTF-8
+ Keywords=Telephone;Call;Phone;Dial;Dialer;PSTN;
+ Name=Phone
+ Name[az]=Telefon
+-- 
+GitLab
+
