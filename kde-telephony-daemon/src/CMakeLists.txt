@@ -19,7 +19,7 @@ set_source_files_properties(
 )
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED Core DBus)
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} OPTIONAL_COMPONENTS Feedback)
+find_package(Qt${QT_MAJOR_VERSION} OPTIONAL_COMPONENTS Feedback)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Config I18n ModemManagerQt Notifications KIO)
 
 qt_add_dbus_interface(ktelephonyd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.DeviceUtils.xml"
@@ -57,7 +57,7 @@ if("${LIBCALLAUDIO_VERSION}" STREQUAL "0.1.2")
     message(ERROR "libcallaudiod version 0.1.2 is not supported")
 endif()
 if("${LIBCALLAUDIO_VERSION}" STREQUAL "0.1.3")
-    message(WARNING "libcallaudiod version 0.1.3 is found, while 1.0.4 is expected." "\n"
+    message(WARNING "libcallaudiod version 0.1.3 is found, while 0.1.4 is expected." "\n"
         "This is a known issue in case of CI build, the workaround is skipping callaudiod logic for the build:" "\n"
         "https://build.opensuse.org/package/show/network:telephony/callaudiod#comment-1675259")
     target_compile_definitions(kde-telephony-daemon PUBLIC LOWER_LIBCALLAUDIO_VERSION)

@@ -63,7 +63,7 @@ SPDX-License-Identifier: CC0-1.0
   <summary xml:lang="ro">Trimite și primește apeluri telefonice</summary>
   <summary xml:lang="sl">Pošilja in sprejema telefonske klice</summary>
   <summary xml:lang="sv">Ring och ta emot telefonsamtal</summary>
-  <summary xml:lang="tr">Arama yapın ve gelen aramaları alın</summary>
+  <summary xml:lang="tr">Arama Yapma ve Gelen Aramaları Alma</summary>
   <summary xml:lang="uk">Надсилання і отримання телефонних дзвінків</summary>
   <summary xml:lang="vi">Gửi và nhận các cuộc gọi điện thoại</summary>
   <summary xml:lang="x-test">xxSend and receive phone callsxx</summary>
@@ -293,6 +293,9 @@ SPDX-License-Identifier: CC0-1.0
   </provides>
   <launchable type="desktop-id">org.kde.phone.dialer.desktop</launchable>
   <releases>
+    <release version="23.01" date="2023-01-30">
+      <url>https://plasma-mobile.org/2023/01/30/january-blog-post/</url>
+    </release>
     <release version="22.11" date="2022-11-30">
       <url>https://plasma-mobile.org/2022/11/30/plasma-mobile-gear-22-11/</url>
     </release>
