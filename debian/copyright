@@ -136,8 +136,7 @@ Copyright: 2014 Aaron Seigo <aseigo@kde.org>
            2020 Devin Lin <espidev@gmail.com>
 License: LGPL-2+
 
-Files: plasma-dialer/src/qml/components/SidebarButton.qml
-       plasma-dialer/src/qml/AboutPage.qml
+Files: plasma-dialer/src/qml/AboutPage.qml
 Copyright: 2021 Devin Lin <devin@kde.org>
 License: GPL-2+
  
