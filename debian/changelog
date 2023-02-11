@@ -5,7 +5,7 @@ plasma-dialer (23.01.0-1) unstable; urgency=medium
   * Drop upstreamed patches
   * Refresh Build-Deps according to upstream CMakeLists.txt
 
- -- Arnaud Ferraris <aferraris@debian.org>  Sun, 05 Feb 2023 17:59:51 +0100
+ -- Arnaud Ferraris <aferraris@debian.org>  Sat, 11 Feb 2023 21:52:49 +0100
 
 plasma-dialer (22.11-1) unstable; urgency=medium
 
