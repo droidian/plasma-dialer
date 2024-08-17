@@ -1,3 +1,15 @@
+plasma-dialer (1:6.2.4-1) unstable; urgency=medium
+
+  * Update remote tarball location in d/watch
+  * Use same d/upstream/signing-key.asc as other Plasma mobile packages
+  * Update d/rules for building based on KF6 instead of KF5
+  * Update d/control after upstream CMakeLists.txt (Closes: #1079476)
+  * Standards-Version 4.7.0 (no changes needed)
+  * Update d/copyright after upstream changes
+  * Update lintian-overrides because upstream has changed executable's name
+
+ -- Marco Mattiolo <marco.mattiolo@hotmail.it>  Fri, 29 Nov 2024 21:04:09 +0100
+
 plasma-dialer (23.01.0-1) unstable; urgency=medium
 
   [ Marco Mattiolo ]
