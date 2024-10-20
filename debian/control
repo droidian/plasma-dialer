@@ -29,7 +29,7 @@ Build-Depends: cmake (>= 3.16~),
                qt6-wayland-dev (>= 6.7.0~),
                qt6-wayland-dev-tools (>= 6.7.0~),
                qt6-wayland-private-dev (>= 6.7.0~),
-Standards-Version: 4.6.2
+Standards-Version: 4.7.0
 Homepage: https://invent.kde.org/plasma-mobile/plasma-dialer
 Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/plasma-dialer
 Vcs-Git: https://salsa.debian.org/DebianOnMobile-team/plasma-dialer.git
