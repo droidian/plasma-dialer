@@ -16,16 +16,21 @@ public:
     DialerUtils(QObject *parent = nullptr);
 
 public Q_SLOTS:
-    Q_INVOKABLE void fetchSpeakerMode();
-    Q_INVOKABLE void fetchMute();
-    Q_INVOKABLE void setSpeakerMode(bool enabled);
-    Q_INVOKABLE void setMute(bool muted);
-    Q_INVOKABLE void syncSettings();
+    bool mute();
+    bool speakerMode();
+    void setMute(bool muted);
+    void setSpeakerMode(bool enabled);
+    void fetchMute();
+    void fetchSpeakerMode();
+    void syncSettings();
 
 Q_SIGNALS:
-    void speakerModeFetched();
-    void muteFetched();
-    void speakerModeChanged(bool enabled);
     void muteChanged(bool muted);
-    void missedCallsActionTriggered();
+    void speakerModeChanged(bool enabled);
+    void muteRequested();
+    void speakerModeRequested();
+
+private:
+    bool m_mute;
+    bool m_speakerMode;
 };

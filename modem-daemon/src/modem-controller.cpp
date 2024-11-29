@@ -11,31 +11,53 @@ ModemController::ModemController(QObject *parent)
 {
 }
 
+QString ModemController::protocol()
+{
+    return QStringLiteral("tel");
+}
+
+QString ModemController::subsystem()
+{
+    return QStringLiteral("native");
+}
+
 QStringList ModemController::deviceUniList()
 {
-    return _deviceUniList;
+    return m_deviceUniList;
 }
 
 void ModemController::appendDeviceUni(const QString &deviceUni)
 {
     if (!deviceUniList().contains(deviceUni)) {
         qDebug() << "found new device:" << deviceUni;
-        _deviceUniList.append(deviceUni);
-        Q_EMIT deviceUniListChanged(_deviceUniList);
+        m_deviceUniList.append(deviceUni);
+        Q_EMIT deviceUniListChanged(m_deviceUniList);
     }
 }
 
 void ModemController::setDeviceUniList(const QStringList &newDeviceUniList)
 {
-    if (_deviceUniList == newDeviceUniList)
+    if (m_deviceUniList == newDeviceUniList)
         return;
-    _deviceUniList = newDeviceUniList;
-    Q_EMIT deviceUniListChanged(_deviceUniList);
+    m_deviceUniList = newDeviceUniList;
+    Q_EMIT deviceUniListChanged(m_deviceUniList);
 }
 
 QString ModemController::equipmentIdentifier(const QString &deviceUni)
 {
     Q_UNUSED(deviceUni);
+    return QString();
+}
+
+QString ModemController::deviceUni(const QString &equipmentIdentifier)
+{
+    // TODO: improve deviceUni getter
+    for (const auto &deviceUni : std::as_const(m_deviceUniList)) {
+        if (equipmentIdentifier == ModemController::equipmentIdentifier(deviceUni)) {
+            return deviceUni;
+        }
+    }
+
     return QString();
 }
 

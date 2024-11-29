@@ -23,32 +23,28 @@ public:
     void setDialerUtils(DialerUtils *dialerUtils);
 
 private Q_SLOTS:
-    void onCallAdded(const QString &deviceUni,
-                     const QString &callUni,
-                     const DialerTypes::CallDirection &callDirection,
-                     const DialerTypes::CallState &callState,
-                     const DialerTypes::CallStateReason &callStateReason,
-                     const QString communicationWith);
-    void onFetchedCallsChanged(const DialerTypes::CallDataVector &fetchedCalls);
-    void onCallStateChanged(const QString &deviceUni,
-                            const QString &callUni,
-                            const DialerTypes::CallDirection &callDirection,
-                            const DialerTypes::CallState &callState,
-                            const DialerTypes::CallStateReason &callStateReason);
-    void onSpeakerModeFetched();
-    void onMuteFetched();
-    void onSetSpeakerModeRequested(bool enabled);
-    void onSetMuteRequested(bool muted);
+    void onUtilsCallAdded(const QString &deviceUni,
+                          const QString &callUni,
+                          const DialerTypes::CallDirection &callDirection,
+                          const DialerTypes::CallState &callState,
+                          const DialerTypes::CallStateReason &callStateReason,
+                          const QString communicationWith);
+    void onUtilsCallsChanged(const DialerTypes::CallDataVector &calls);
+    void onUtilsCallStateChanged(const DialerTypes::CallData &callData);
+    void onUtilsMuteChanged(bool muted);
+    void onUtilsSpeakerModeChanged(bool enabled);
+    void onUtilsMuteRequested();
+    void onUtilsSpeakerModeRequested();
 
 private:
     void pauseMedia();
     void unpauseMedia();
 
-    org::kde::telephony::CallUtils *_callUtils;
-    DialerUtils *_dialerUtils;
-    QSet<QString> _pausedSources;
+    org::kde::telephony::CallUtils *m_callUtils;
+    DialerUtils *m_dialerUtils;
+    QSet<QString> m_pausedSources;
 
-    bool _needsDefaultAudioMode;
+    bool m_needsDefaultAudioMode;
 };
 
 #endif // CALL_MANAGER_H

@@ -5,7 +5,7 @@
 #include "declarative-contact-utils.h"
 
 #include <KContacts/VCardConverter>
-#include <KPeople/KPeopleBackend/AbstractContact>
+#include <KPeopleBackend/AbstractContact>
 #include <KPeople/PersonData>
 
 #include "callutilsinterface.h"
@@ -60,4 +60,9 @@ QVariantList DeclarativeContactUtils::phoneNumbers(const QString &kPeopleUri)
     auto addressee = converter.parseVCard(vcard);
 
     return toVariantList(addressee.phoneNumbers());
+}
+
+bool DeclarativeContactUtils::isValid() const
+{
+    return org::kde::telephony::ContactUtils::isValid();
 }
