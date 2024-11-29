@@ -7,10 +7,15 @@ ecm_install_po_files_as_qm(po)
 
 ecm_create_qm_loader(modem-daemon_QM_LOADER modem-daemon_qt)
 
+set(MODEM_SUBSYSTEM_SRCS "")
+if (${MODEM_SUBSYSTEM} STREQUAL "ModemManager")
+    set(MODEM_SUBSYSTEM_SRCS mm-modem-controller.cpp)
+elseif(${MODEM_SUBSYSTEM} STREQUAL "oFono")
+    message(STATUS "oFono support is not implemented yet")
+endif()
+
 set(modemd_SRCS
     main.cpp
-    call-history-database.cpp
-    call-history-manager.cpp
     call-utils.cpp
     call-object.cpp
     call-manager.cpp
@@ -19,12 +24,16 @@ set(modemd_SRCS
     device-utils.cpp
     device-manager.cpp
     modem-controller.cpp
-    mm-modem-controller.cpp
+    ${MODEM_SUBSYSTEM_SRCS}
     ${modem-daemon_QM_LOADER}
     )
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED Core Gui DBus Sql)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ModemManagerQt)
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core Gui DBus)
+if (${MODEM_SUBSYSTEM} STREQUAL "ModemManager")
+    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS ModemManagerQt)
+elseif(${MODEM_SUBSYSTEM} STREQUAL "oFono")
+    message(STATUS "oFono support is not implemented yet")
+endif()
 find_package(PhoneNumber COMPONENTS PhoneNumber REQUIRED)
 
 qt_add_dbus_adaptor(modemd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.DeviceUtils.xml"
@@ -36,9 +45,6 @@ qt_add_dbus_adaptor(modemd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.UssdU
 qt_add_dbus_adaptor(modemd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.CallUtils.xml"
     call-utils.h CallUtils)
 
-qt_add_dbus_adaptor(modemd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.CallHistoryDatabase.xml"
-    call-history-database.h CallHistoryDatabase)
-
 add_executable(modem-daemon
     ${modemd_SRCS}
     )
@@ -48,11 +54,15 @@ target_include_directories(modem-daemon PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(modem-daemon
     Qt::Core
     Qt::DBus
-    Qt::Sql
-    KF5::ModemManagerQt
     PhoneNumber::PhoneNumber
-    ktelephonymetatypes # FIXME: KF5 cmake files
+    ktelephonymetatypes # FIXME: KF6 cmake files
     )
+
+if (${MODEM_SUBSYSTEM} STREQUAL "ModemManager")
+    target_link_libraries(modem-daemon KF6::ModemManagerQt)
+elseif(${MODEM_SUBSYSTEM} STREQUAL "oFono")
+    message(STATUS "oFono support is not implemented yet")
+endif()
 
 configure_file(daemon-autostart.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/daemon-autostart.desktop)
 

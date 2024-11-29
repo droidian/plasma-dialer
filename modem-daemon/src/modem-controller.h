@@ -11,6 +11,10 @@ class ModemController : public QObject
 
 public:
     explicit ModemController(QObject *parent = nullptr);
+
+    QString protocol();
+    QString subsystem();
+
 Q_SIGNALS:
     // Modem/3GPP
     void deviceUniListChanged(const QStringList &deviceUniList);
@@ -31,11 +35,7 @@ Q_SIGNALS:
                    const DialerTypes::CallStateReason &callStateReason,
                    const QString communicationWith);
     void callDeleted(const QString &deviceUni, const QString &callUni);
-    void callStateChanged(const QString &deviceUni,
-                          const QString &callUni,
-                          const DialerTypes::CallDirection &callDirection,
-                          const DialerTypes::CallState &callState,
-                          const DialerTypes::CallStateReason &callStateReason);
+    void callStateChanged(const DialerTypes::CallData &callData);
 
 public Q_SLOTS:
     // Device
@@ -43,6 +43,7 @@ public Q_SLOTS:
     void appendDeviceUni(const QString &deviceUni);
     void setDeviceUniList(const QStringList &newDeviceUniList);
     virtual QString equipmentIdentifier(const QString &deviceUni);
+    QString deviceUni(const QString &equipmentIdentifier);
     // USSD
     virtual void ussdInitiate(const QString &deviceUni, const QString &command);
     virtual void ussdRespond(const QString &deviceUni, const QString &reply);
@@ -58,5 +59,5 @@ public Q_SLOTS:
     virtual void deleteCall(const QString &deviceUni, const QString &callUni);
 
 private:
-    QStringList _deviceUniList;
+    QStringList m_deviceUniList;
 };

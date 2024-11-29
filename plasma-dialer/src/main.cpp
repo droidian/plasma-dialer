@@ -12,16 +12,17 @@
 #include <KDBusService>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KWindowSystem>
 #include <QCommandLineParser>
 #include <QIcon>
 #include <QObject>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <QQuickStyle>
-#include <QQuickWindow>
-#include <QtQml>
 
 #ifdef DIALER_BUILD_SHELL_OVERLAY
 #include "qwayland-kde-lockscreen-overlay-v1.h"
+#include <KWaylandExtras>
+#include <KWindowSystem>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusReply>
@@ -79,7 +80,7 @@ public:
     WaylandAboveLockscreen()
         : QWaylandClientExtensionTemplate<WaylandAboveLockscreen>(1)
     {
-        QMetaObject::invokeMethod(this, "addRegistryListener");
+        initialize();
     }
 
     void allowWindow(QWindow *window)
@@ -91,8 +92,21 @@ public:
         allow(surface);
     }
 };
-
 #endif // DIALER_BUILD_SHELL_OVERLAY
+
+static void allowAboveLockscreen(QWindow *window)
+{
+#ifdef DIALER_BUILD_SHELL_OVERLAY
+    if (KWindowSystem::isPlatformWayland()) {
+        Q_ASSERT(!window->isVisible());
+        WaylandAboveLockscreen aboveLockscreen;
+        Q_ASSERT(aboveLockscreen.isInitialized());
+        aboveLockscreen.allowWindow(window);
+    } else {
+        qDebug() << Q_FUNC_INFO << "Dialer shell overlay is supported only for Wayland";
+    }
+#endif // DIALER_BUILD_SHELL_OVERLAY
+}
 
 // raiseWindow with lockscreen support if possible
 static void raiseWindow(QWindow *window)
@@ -101,23 +115,26 @@ static void raiseWindow(QWindow *window)
     bool screenLocked = ScreenSaverUtils::getActive();
     updateLockscreenMode(window, screenLocked);
     if (screenLocked) {
-        window->setVisibility(QWindow::Visibility::FullScreen);
-        KWindowSystem::requestXdgActivationToken(window, 0, QStringLiteral("org.kde.phone.dialer.desktop"));
-        QObject::connect(KWindowSystem::self(), &KWindowSystem::xdgActivationTokenArrived, window, [window](int, const QString &token) {
-            KWindowSystem::setCurrentXdgActivationToken(token);
-            KWindowSystem::activateWindow(window->winId());
-        });
+        if (KWindowSystem::isPlatformWayland()) {
+            window->setVisibility(QWindow::Visibility::FullScreen);
+            KWaylandExtras::requestXdgActivationToken(window, 0, QStringLiteral("org.kde.plasma.dialer.desktop"));
+            QObject::connect(KWaylandExtras::self(), &KWaylandExtras::xdgActivationTokenArrived, window, [window](int, const QString &token) {
+                KWindowSystem::setCurrentXdgActivationToken(token);
+                KWindowSystem::activateWindow(window);
+            });
+        } else {
+            qDebug() << Q_FUNC_INFO << "Screen is locked. Dialer shell overlay is supported only for Wayland";
+        }
     } else {
-        KWindowSystem::raiseWindow(window->winId());
+        window->raise();
     }
 #else // DIALER_BUILD_SHELL_OVERLAY
-    KWindowSystem::raiseWindow(window->winId());
+    window->raise();
 #endif // DIALER_BUILD_SHELL_OVERLAY
 }
 
 int main(int argc, char **argv)
 {
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE") && QQuickStyle::name().isEmpty()) {
@@ -139,7 +156,7 @@ int main(int argc, char **argv)
                          KAboutLicense::GPL,
                          i18n("© 2015-2022 KDE Community"));
     aboutData.setBugAddress("https://bugs.kde.org/describecomponents.cgi?product=Plasma%20Mobile%20Dialer");
-    aboutData.setDesktopFileName(QStringLiteral("org.kde.phone.dialer"));
+    aboutData.setDesktopFileName(QStringLiteral("org.kde.plasma.dialer"));
     aboutData.addAuthor(i18n("Alexey Andreyev"), QString(), QStringLiteral("aa13q@ya.ru"));
     KAboutData::setApplicationData(aboutData);
 
@@ -156,7 +173,7 @@ int main(int argc, char **argv)
 
     auto config = Config::self();
 
-    qmlRegisterSingletonInstance("org.kde.phone.dialer", 1, 0, "Config", config);
+    qmlRegisterSingletonInstance("org.kde.plasma.dialer", 1, 0, "Config", config);
 
     engine.rootContext()->setContextProperty(QStringLiteral("DialerAboutData"), QVariant::fromValue(aboutData));
 
@@ -176,12 +193,7 @@ int main(int argc, char **argv)
     QWindow *window = qobject_cast<QWindow *>(engine.rootObjects().at(0));
     Q_ASSERT(window);
 
-#ifdef DIALER_BUILD_SHELL_OVERLAY
-    Q_ASSERT(!window->isVisible());
-    WaylandAboveLockscreen aboveLockscreen;
-    Q_ASSERT(aboveLockscreen.isInitialized());
-    aboveLockscreen.allowWindow(window);
-#endif // DIALER_BUILD_SHELL_OVERLAY
+    allowAboveLockscreen(window);
 
     raiseWindow(window);
     QObject::connect(&service, &KDBusService::activateRequested, window, [&window](const QStringList &arguments) {

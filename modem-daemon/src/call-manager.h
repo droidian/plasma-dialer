@@ -28,20 +28,16 @@ private Q_SLOTS:
                      const DialerTypes::CallStateReason &callStateReason,
                      const QString communicationWith);
     void onCallDeleted(const QString &deviceUni, const QString &callUni);
-    void onCallStateChanged(const QString &deviceUni,
-                            const QString &callUni,
-                            const DialerTypes::CallDirection &callDirection,
-                            const DialerTypes::CallState &callState,
-                            const DialerTypes::CallStateReason &callStateReason);
-    void onCreatedCall(const QString &deviceUni, const QString &callUni);
-    void onAccepted(const QString &deviceUni, const QString &callUni);
-    void onHungUp(const QString &deviceUni, const QString &callUni);
-    void onSendDtmfRequested(const QString &deviceUni, const QString &callUni, const QString &tones);
-    void onFetchedCalls();
+    void onCallStateChanged(const DialerTypes::CallData &callData);
+    void onUtilsCreatedCall(const QString &deviceUni, const QString &callUni);
+    void onUtilsAccepted(const QString &deviceUni, const QString &callUni);
+    void onUtilsHungUp(const QString &deviceUni, const QString &callUni);
+    void onUtilsSentDtmf(const QString &deviceUni, const QString &callUni, const QString &tones);
+    void onUtilsCallsRequested();
 
 private:
-    ModemController *_modemController;
-    CallUtils *_callUtils;
+    ModemController *m_modemController;
+    CallUtils *m_callUtils;
 
     std::optional<QDBusUnixFileDescriptor> m_inhibitSleepFd;
 };

@@ -5,11 +5,11 @@
 #pragma once
 
 #include <KNotification>
-#ifdef HAVE_QT5_FEEDBACK
-#include <QtFeedback/QFeedbackEffect>
-#endif // HAVE_QT5_FEEDBACK
+#ifdef HAVE_K_TACTILE_FEEDBACK
+#include <KTactileFeedback/QFeedbackEffect>
+#endif // HAVE_K_TACTILE_FEEDBACK
 
-#include "callhistorydatabaseinterface.h"
+#include "call-history-database.h"
 #include "callutilsinterface.h"
 #include "contact-utils.h"
 
@@ -21,9 +21,9 @@ public:
 
     void setCallUtils(org::kde::telephony::CallUtils *callUtils);
     void setContactUtils(ContactUtils *contactUtils);
+    void setCallHistoryDatabase(CallHistoryDatabase *callHistoryDatabase);
 
 private Q_SLOTS:
-    void onNotificationAction(unsigned int action);
     void onCallAdded(const QString &deviceUni,
                      const QString &callUni,
                      const DialerTypes::CallDirection &callDirection,
@@ -31,14 +31,10 @@ private Q_SLOTS:
                      const DialerTypes::CallStateReason &callStateReason,
                      const QString communicationWith);
     void onCallDeleted(const QString &deviceUni, const QString &callUni);
-    void onCallStateChanged(const QString &deviceUni,
-                            const QString &callUni,
-                            const DialerTypes::CallDirection &callDirection,
-                            const DialerTypes::CallState &callState,
-                            const DialerTypes::CallStateReason &callStateReason);
+    void onCallStateChanged(const DialerTypes::CallData &callData);
 
 private:
-    std::unique_ptr<KNotification> _ringingNotification;
+    std::unique_ptr<KNotification> m_ringingNotification;
 
     void openRingingNotification(const QString &deviceUni, const QString &callUni, const QString callerDisplay, const QString notificationEvent);
     void closeRingingNotification();
@@ -49,14 +45,16 @@ private:
     void handleIncomingCall(const QString &deviceUni, const QString &callUni, const QString &communicationWith);
     void handleCallInteraction();
 
-    org::kde::telephony::CallHistoryDatabase *_databaseInterface;
+    CallHistoryDatabase *m_callHistoryDatabase;
 
-    org::kde::telephony::CallUtils *_callUtils;
-    ContactUtils *_contactUtils;
+    org::kde::telephony::CallUtils *m_callUtils;
+    ContactUtils *m_contactUtils;
+
+    bool m_callStarted;
 
     void startHapticsFeedback();
     void stopHapticsFeedback();
-#ifdef HAVE_QT5_FEEDBACK
+#ifdef HAVE_K_TACTILE_FEEDBACK
     std::unique_ptr<QFeedbackHapticsEffect> _ringEffect;
-#endif // HAVE_QT5_FEEDBACK
+#endif // HAVE_K_TACTILE_FEEDBACK
 };

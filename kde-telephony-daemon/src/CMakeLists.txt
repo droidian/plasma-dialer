@@ -8,6 +8,8 @@ set(ktelephonyd_SRCS
     contact-utils.cpp
     dialer-manager.cpp
     notification-manager.cpp
+    call-history-database.cpp
+    call-history-manager.cpp
     )
 
 set_source_files_properties(
@@ -18,9 +20,9 @@ set_source_files_properties(
     INCLUDE "kTelephonyMetaTypes/dialer-types.h"
 )
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED Core DBus)
-find_package(Qt${QT_MAJOR_VERSION} OPTIONAL_COMPONENTS Feedback)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Config I18n ModemManagerQt Notifications KIO)
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core DBus Sql)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config I18n Notifications KIO)
+find_package(KTactileFeedback OPTIONAL_COMPONENTS KTactileFeedback)
 
 qt_add_dbus_interface(ktelephonyd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.DeviceUtils.xml"
     deviceutilsinterface)
@@ -36,6 +38,9 @@ qt_add_dbus_adaptor(ktelephonyd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.
 
 qt_add_dbus_adaptor(ktelephonyd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.DialerUtils.xml"
     dialer-utils.h DialerUtils)
+
+qt_add_dbus_adaptor(ktelephonyd_SRCS "${DBUS_INTERFACES_PATH}/org.kde.telephony.CallHistoryDatabase.xml"
+    call-history-database.h CallHistoryDatabase)
 
 add_executable(kde-telephony-daemon
     ${ktelephonyd_SRCS}
@@ -65,23 +70,23 @@ endif()
 
 
 target_link_libraries(kde-telephony-daemon
-    KF5::ConfigGui
+    KF6::ConfigGui
     Qt::Core
     Qt::DBus
-    KF5::I18n
-    KF5::KIOGui
-    KF5::Notifications
-    KF5::ModemManagerQt
+    Qt::Sql
+    KF6::I18n
+    KF6::KIOGui
+    KF6::Notifications
     PkgConfig::LIBCALLAUDIO
-    ktelephonymetatypes # FIXME: KF5 cmake files
+    ktelephonymetatypes # FIXME: KF6 cmake files
     contactphonenumbermapper
     )
 
-if (Qt5Feedback_FOUND)
-    target_link_libraries(kde-telephony-daemon Qt5::Feedback)
-    target_compile_definitions(kde-telephony-daemon PUBLIC HAVE_QT5_FEEDBACK)
+if (KTactileFeedback_FOUND)
+    target_link_libraries(kde-telephony-daemon KTactileFeedback::KTactileFeedback)
+    target_compile_definitions(kde-telephony-daemon PUBLIC HAVE_K_TACTILE_FEEDBACK)
 else()
-    message(WARNING "Qt Feedback dependency is not found. While it is optional since unmaintained, haptics feedback functionality is not supported without it.")
+    message(WARNING "KTactileFeedback dependency is not found. It's expected since project's status is work in progress.")
 endif()
 
 configure_file(daemon-autostart.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/daemon-autostart.desktop)

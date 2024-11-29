@@ -26,15 +26,23 @@ public Q_SLOTS:
     void hangUp(const QString &deviceUni, const QString &callUni);
     void sendDtmf(const QString &deviceUni, const QString &callUni, const QString &tones);
     void fetchCalls();
-    void setFetchedCalls(const DialerTypes::CallDataVector &fetchedCalls);
+    void setCalls(const DialerTypes::CallDataVector &calls);
+    void addCall(const QString &deviceUni,
+                 const QString &callUni,
+                 const DialerTypes::CallDirection &callDirection,
+                 const DialerTypes::CallState &callState,
+                 const DialerTypes::CallStateReason &callStateReason,
+                 const QString communicationWith);
+    void deleteCall(const QString &deviceUni, const QString &callUni);
+    void setCallState(const DialerTypes::CallData &callData);
 
 Q_SIGNALS:
     void dialed(const QString &deviceUni, const QString &number);
     void accepted(const QString &deviceUni, const QString &callUni);
     void hungUp(const QString &deviceUni, const QString &callUni);
     void sentDtmf(const QString &deviceUni, const QString &callUni, const QString &tones);
-    void fetchedCalls();
-    void fetchedCallsChanged(const DialerTypes::CallDataVector &fetchedCalls);
+    void callsRequested();
+    void callsChanged(const DialerTypes::CallDataVector &calls);
     void callAdded(const QString &deviceUni,
                    const QString &callUni,
                    const DialerTypes::CallDirection &callDirection,
@@ -42,9 +50,5 @@ Q_SIGNALS:
                    const DialerTypes::CallStateReason &callStateReason,
                    const QString communicationWith);
     void callDeleted(const QString &deviceUni, const QString &callUni);
-    void callStateChanged(const QString &deviceUni,
-                          const QString &callUni,
-                          const DialerTypes::CallDirection &callDirection,
-                          const DialerTypes::CallState &callState,
-                          const DialerTypes::CallStateReason &callStateReason);
+    void callStateChanged(const DialerTypes::CallData &callData);
 };

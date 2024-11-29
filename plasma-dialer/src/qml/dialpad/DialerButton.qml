@@ -2,20 +2,13 @@
 // SPDX-FileCopyrightText: 2014 Marco Martin <mart@kde.org>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
-import QtQuick 2.4
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.2 as Controls
-
-import org.kde.kirigami 2.2 as Kirigami
-
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as Controls
+import org.kde.kirigami as Kirigami
 
 Item {
     id: root
-    Layout.fillWidth: true
-    Layout.fillHeight: true
-
-    signal clicked(string text)
-    signal held(string text)
 
     property string text
     property string sub
@@ -23,6 +16,12 @@ Item {
     property string subdisplay
     property bool voicemail: false
     property bool special: false
+
+    signal clicked(string text)
+    signal held(string text)
+
+    Layout.fillWidth: true
+    Layout.fillHeight: true
 
     Rectangle {
         anchors.fill: parent
@@ -34,10 +33,9 @@ Item {
 
     Controls.AbstractButton {
         id: mouse
+
         anchors.fill: parent
-
         onClicked: root.clicked(parent.text)
-
         onPressAndHold: root.held(parent.text)
     }
 
@@ -51,7 +49,7 @@ Item {
 
             font.pixelSize: applicationWindow().smallMode ? Kirigami.Units.gridUnit * 1.2 : Kirigami.Units.gridUnit * 1.75
             text: root.display || root.text
-            opacity: special ? 0.4 : 1.0
+            opacity: special ? 0.4 : 1
             Layout.minimumWidth: parent.width
             horizontalAlignment: Text.AlignHCenter
             font.weight: Font.Light
@@ -73,6 +71,9 @@ Item {
                 height: width
                 color: Kirigami.Theme.textColor
             }
+
         }
+
     }
+
 }
