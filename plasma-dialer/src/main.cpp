@@ -50,7 +50,9 @@ static void inputCallNumber(QWindow *window, const QString &number)
 #ifdef DIALER_BUILD_SHELL_OVERLAY
 static void updateLockscreenMode(QWindow *window, bool mode)
 {
-    QMetaObject::invokeMethod(window, "updateLockscreenMode", Q_ARG(QVariant, mode));
+    if (!qEnvironmentVariableIsSet("KDE_NO_KWIN")){
+        QMetaObject::invokeMethod(window, "updateLockscreenMode", Q_ARG(QVariant, mode));
+    }
 }
 #endif // DIALER_BUILD_SHELL_OVERLAY
 
@@ -61,12 +63,14 @@ public:
     {
         bool active = false;
 #ifdef DIALER_BUILD_SHELL_OVERLAY
-        QDBusMessage request = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.ScreenSaver"),
+        if (!qEnvironmentVariableIsSet("KDE_NO_KWIN")){
+            QDBusMessage request = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.ScreenSaver"),
                                                               QStringLiteral("/ScreenSaver"),
                                                               QStringLiteral("org.freedesktop.ScreenSaver"),
                                                               QStringLiteral("GetActive"));
-        const QDBusReply<bool> response = QDBusConnection::sessionBus().call(request);
-        active = response.isValid() ? response.value() : false;
+            const QDBusReply<bool> response = QDBusConnection::sessionBus().call(request);
+            active = response.isValid() ? response.value() : false;
+        }
 #endif // DIALER_BUILD_SHELL_OVERLAY
         return active;
     }
@@ -97,13 +101,15 @@ public:
 static void allowAboveLockscreen(QWindow *window)
 {
 #ifdef DIALER_BUILD_SHELL_OVERLAY
-    if (KWindowSystem::isPlatformWayland()) {
-        Q_ASSERT(!window->isVisible());
-        WaylandAboveLockscreen aboveLockscreen;
-        Q_ASSERT(aboveLockscreen.isInitialized());
-        aboveLockscreen.allowWindow(window);
-    } else {
-        qDebug() << Q_FUNC_INFO << "Dialer shell overlay is supported only for Wayland";
+    if (!qEnvironmentVariableIsSet("KDE_NO_KWIN")){
+        if (KWindowSystem::isPlatformWayland()) {
+            Q_ASSERT(!window->isVisible());
+            WaylandAboveLockscreen aboveLockscreen;
+            Q_ASSERT(aboveLockscreen.isInitialized());
+            aboveLockscreen.allowWindow(window);
+        } else {
+            qDebug() << Q_FUNC_INFO << "Dialer shell overlay is supported only for Wayland";
+        }
     }
 #endif // DIALER_BUILD_SHELL_OVERLAY
 }
@@ -112,18 +118,22 @@ static void allowAboveLockscreen(QWindow *window)
 static void raiseWindow(QWindow *window)
 {
 #ifdef DIALER_BUILD_SHELL_OVERLAY
-    bool screenLocked = ScreenSaverUtils::getActive();
-    updateLockscreenMode(window, screenLocked);
-    if (screenLocked) {
-        if (KWindowSystem::isPlatformWayland()) {
-            window->setVisibility(QWindow::Visibility::FullScreen);
-            KWaylandExtras::requestXdgActivationToken(window, 0, QStringLiteral("org.kde.plasma.dialer.desktop"));
-            QObject::connect(KWaylandExtras::self(), &KWaylandExtras::xdgActivationTokenArrived, window, [window](int, const QString &token) {
-                KWindowSystem::setCurrentXdgActivationToken(token);
-                KWindowSystem::activateWindow(window);
-            });
+    if (!qEnvironmentVariableIsSet("KDE_NO_KWIN")){
+        bool screenLocked = ScreenSaverUtils::getActive();
+        updateLockscreenMode(window, screenLocked);
+        if (screenLocked) {
+            if (KWindowSystem::isPlatformWayland()) {
+                window->setVisibility(QWindow::Visibility::FullScreen);
+                KWaylandExtras::requestXdgActivationToken(window, 0, QStringLiteral("org.kde.plasma.dialer.desktop"));
+                QObject::connect(KWaylandExtras::self(), &KWaylandExtras::xdgActivationTokenArrived, window, [window](int, const QString &token) {
+                    KWindowSystem::setCurrentXdgActivationToken(token);
+                    KWindowSystem::activateWindow(window);
+                });
+            } else {
+                qDebug() << Q_FUNC_INFO << "Screen is locked. Dialer shell overlay is supported only for Wayland";
+            }
         } else {
-            qDebug() << Q_FUNC_INFO << "Screen is locked. Dialer shell overlay is supported only for Wayland";
+            window->raise();
         }
     } else {
         window->raise();
