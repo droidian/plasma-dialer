@@ -30,6 +30,9 @@ Controls.ItemDelegate {
                         return "call-start";
                 }
             }
+            color: source == "call-incoming" ? "blue" :
+                    source == "call-missed" ? "red" :
+                    source == "call-outgoing" ? "green" : Kirigami.Theme.textColor
         }
 
         ColumnLayout {
