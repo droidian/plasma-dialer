@@ -268,9 +268,7 @@ void NotificationManager::handleIncomingCall(const QString &deviceUni, const QSt
         openRingingNotification(deviceUni, callUni, callerDisplay, notificationEvent);
     }
 
-    if (screenLocked) {
-        launchPlasmaDialerDesktopFile();
-    }
+    launchPlasmaDialerDesktopFile();
 }
 
 void NotificationManager::handleCallInteraction()
