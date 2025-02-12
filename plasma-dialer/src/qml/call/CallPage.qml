@@ -49,12 +49,12 @@ Kirigami.Page {
     title: i18n("Active call list")
 
     Connections {
-        function onMuteChanged(muted) {
-            muteButton.toggledOn = muted;
+        function onMuteChanged() {
+            muteButton.toggledOn = DialerUtils.mute;
         }
 
-        function onSpeakerModeChanged(enabled) {
-            speakerButton.toggledOn = enabled;
+        function onSpeakerModeChanged() {
+            speakerButton.toggledOn = DialerUtils.speakerMode;
         }
 
         target: DialerUtils
