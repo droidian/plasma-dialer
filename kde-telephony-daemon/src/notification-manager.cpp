@@ -118,7 +118,7 @@ void NotificationManager::onCallStateChanged(const DialerTypes::CallData &callDa
         if (callData.state == DialerTypes::CallState::Terminated) {
             handleCallInteraction();
 
-            if (callData.stateReason == DialerTypes::CallStateReason::Unknown && !m_callStarted) {
+            if (!m_callStarted) {
                 auto missedCallNotification = new KNotification(QStringLiteral("callMissed"), KNotification::Persistent, this);
                 missedCallNotification->setComponentName(QStringLiteral("plasma-dialer"));
                 missedCallNotification->setTitle(i18n("Missed call"));
