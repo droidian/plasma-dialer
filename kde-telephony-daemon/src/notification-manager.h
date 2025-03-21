@@ -32,6 +32,7 @@ private Q_SLOTS:
                      const QString communicationWith);
     void onCallDeleted(const QString &deviceUni, const QString &callUni);
     void onCallStateChanged(const DialerTypes::CallData &callData);
+    void onHungUp(const QString &deviceUni, const QString &callUni);
 
 private:
     std::unique_ptr<KNotification> m_ringingNotification;
@@ -51,6 +52,7 @@ private:
     ContactUtils *m_contactUtils;
 
     bool m_callStarted;
+    bool m_callHungUp;
 
     void startHapticsFeedback();
     void stopHapticsFeedback();

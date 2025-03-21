@@ -42,6 +42,7 @@ NotificationManager::NotificationManager(QObject *parent)
     : QObject(parent)
     , m_ringingNotification(std::make_unique<KNotification>(QStringLiteral("ringing"), KNotification::Persistent | KNotification::LoopSound, this))
     , m_callStarted(false)
+    , m_callHungUp(false)
 
 #ifdef HAVE_K_TACTILE_FEEDBACK
     , _ringEffect(std::make_unique<QFeedbackHapticsEffect>())
@@ -68,6 +69,7 @@ void NotificationManager::setCallUtils(org::kde::telephony::CallUtils *callUtils
     connect(m_callUtils, &org::kde::telephony::CallUtils::callAdded, this, &NotificationManager::onCallAdded);
     connect(m_callUtils, &org::kde::telephony::CallUtils::callStateChanged, this, &NotificationManager::onCallStateChanged);
     connect(m_callUtils, &org::kde::telephony::CallUtils::callDeleted, this, &NotificationManager::onCallDeleted);
+    connect(m_callUtils, &org::kde::telephony::CallUtils::hungUp, this, &NotificationManager::onHungUp);
 }
 
 void NotificationManager::setContactUtils(ContactUtils *contactUtils)
@@ -91,7 +93,9 @@ void NotificationManager::onCallAdded(const QString &deviceUni,
     if (callDirection == DialerTypes::CallDirection::Incoming) {
         if (callState == DialerTypes::CallState::RingingIn) {
             handleIncomingCall(deviceUni, callUni, communicationWith);
+            
             m_callStarted = false;
+            m_callHungUp = false;
         }
     }
 }
@@ -118,7 +122,7 @@ void NotificationManager::onCallStateChanged(const DialerTypes::CallData &callDa
         if (callData.state == DialerTypes::CallState::Terminated) {
             handleCallInteraction();
 
-            if (!m_callStarted) {
+            if (!m_callStarted && !m_callHungUp) {
                 auto missedCallNotification = new KNotification(QStringLiteral("callMissed"), KNotification::Persistent, this);
                 missedCallNotification->setComponentName(QStringLiteral("plasma-dialer"));
                 missedCallNotification->setTitle(i18n("Missed call"));
@@ -131,6 +135,12 @@ void NotificationManager::onCallStateChanged(const DialerTypes::CallData &callDa
             m_callStarted = true;
         }
     }
+}
+
+void NotificationManager::onHungUp(const QString &deviceUni, const QString &callUni)
+{
+    qDebug() << Q_FUNC_INFO << "call hung up:";
+    m_callHungUp = true;
 }
 
 void NotificationManager::openRingingNotification(const QString &deviceUni,
