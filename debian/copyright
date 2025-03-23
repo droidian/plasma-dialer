@@ -1,0 +1,435 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: plasma-dialer
+Upstream-Contact: plasma-devel@kde.org
+Source: https://invent.kde.org/plasma-mobile/plasma-dialer
+
+Files: *
+Copyright: 2021-2024 Alexey Andreyev <aa13q@ya.ru>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: debian/*
+Copyright: 2023-2024 Marco Mattiolo <marco.mattiolo@hotmail.it>
+License: GPL-3+
+
+Files: .git*
+       .kde-ci.yml
+       kde-telephony-plugin-declarative/src/qmldir
+       plasma-dialer/src/resources.qrc
+Copyright: None
+License: CC0-1.0
+
+Files: logo.png
+       plasma-dialer/dialer.svg
+Copyright: 2020 Mathis Brüchert <mbb-mail@gmx.de>
+License: CC0-1.0
+
+Files: *.desktop*
+       *.service.in
+       plasma-dialer/src/config.kcfg*
+Copyright: None
+License: BSD-3-Clause
+
+Files: *Messages.sh
+Copyright: KDE Translation Contributors <kde-i18n-doc@kde.org>
+License: BSD-3-Clause
+
+Files: *README.md
+Copyright: Alexey Andreyev <aa13q@ya.ru>
+License: CC0-1.0
+
+Files: kde-telephony-daemon/autotests/CMakeLists.txt
+Copyright: 2021 Nicolas Fella <nicolas.fella@gmx.de>
+License: BSD-3-Clause
+
+Files: kde-telephony-daemon/autotests/contact-mapper-test.cpp
+Copyright: 2021 Nicolas Fella <nicolas.fella@gmx.de>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: kde-telephony-daemon/autotests/fake-contact-source.*
+Copyright: 2013 David Edmundson <davidedmundson@kde.org>
+License: LGPL-2.1+
+
+Files: kde-telephony-daemon/contactphonenumbermapper/CMakeLists.txt
+Copyright: 2018 Volker Krause <vkrause@kde.org>
+           2022 Alexey Andreyev <aa13q@ya.ru>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: kde-telephony-daemon/contactphonenumbermapper/contact-phone-number-mapper.*
+Copyright: 2020 Jonah Brüchert <jbb@kaidan.im>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: kde-telephony-daemon/contactphonenumbermapper/phone-number-utils.*
+Copyright: 2021 Jonah Brüchert <jbb@kaidan.im>
+License: GPL-2 OR GPL-3 OR LicenseRef-KDE-Accepted-GPL
+
+Files: kde-telephony-daemon/src/dialer-manager.*
+       modem-daemon/src/call-manager.*
+Copyright: 2012 George Kiagiadakis <kiagiadakis.george@gmail.com>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+           2022 Bhushan Shah <bshah@kde.org>
+License: LGPL-2.1+
+
+Files: kde-telephony-daemon/src/dialer-utils.*
+Copyright: 2015 Marco Martin <mart@kde.org>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2.1+
+
+Files: kde-telephony-daemon/src/notification-manager.*
+Copyright: 2020-2021 Bhushan Shah <bshah@kde.org>
+           2020 Jonah Brüchert <jbb@kaidan.im>
+           2021 Nicolas Fella <nicolas.fella@gmx.de>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2.1 OR LGPL-3 OR LicenseRef-KDE-Accepted-LGPL
+
+Files: kde-telephony-meta/dbus-xmls/manual/org.kde.telephony*
+Copyright: Alexey Andreyev <aa13q@ya.ru>
+License: BSD-3-Clause
+
+Files: kde-telephony-meta/dbus-xmls/manual/org.mpris.MediaPlayer2.Player.xml
+Copyright: 1991, 1999 Free Software Foundation, Inc
+License: LGPL-2.1+
+
+Files: kde-telephony-plugin-declarative/src/call-history-model.*
+Copyright: 2019 Nicolas Fella <nicolas.fella@gmx.de>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2.1+
+
+Files: kde-telephony-daemon/src/call-history-database.*
+Copyright: 2020 Jonah Brüchert <jbb@kaidan.im>
+           2020 Bhushan Shah <bshah@kde.org>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: modem-daemon/src/call-utils.*
+Copyright: 2015 Marco Martin <mart@kde.org>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2.1+
+
+Files: plasma-dialer/src/plasma-dialer.notifyrc.in
+Copyright: 2015 Marco Martin <notmart@gmail.com>
+License: BSD-3-Clause
+
+Files: plasma-dialer/src/qml/PhoneNumberDialog.qml
+Copyright: 2021 Nicolas Fella <nicolas.fella@gmx.de>
+License: LGPL-2+
+
+Files: plasma-dialer/src/qml/call/AsymmetricAnswerSwipe.qml
+       plasma-dialer/src/main.cpp
+Copyright: 2015 Marco Martin <mart@kde.org>
+           2021-2022 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2+
+
+Files: plasma-dialer/src/qml/call/AnswerButtons.qml
+       plasma-dialer/src/qml/call/SymmetricAnswerSwipe.qml
+Copyright: 2022 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2+
+ 
+Files: plasma-dialer/src/qml/call/CallPageButton.qml
+       plasma-dialer/src/qml/call/InCallInlineMessage.qml
+Copyright: 2020 Devin Lin <espidev@gmail.com>
+License: LGPL-2+
+ 
+Files: plasma-dialer/src/qml/call/CallPage.qml
+Copyright: 2014 Aaron Seigo <aseigo@kde.org>
+           2015 Marco Martin <mart@kde.org>
+           2020 Devin Lin <espidev@gmail.com>
+License: LGPL-2+
+
+Files: plasma-dialer/src/qml/AboutPage.qml
+Copyright: 2021 Devin Lin <devin@kde.org>
+License: GPL-2+
+ 
+Files: plasma-dialer/src/qml/ContactsPage.qml
+Copyright: 2015 Martin Klapetek <mklapetek@kde.org>
+License: LGPL-2+
+ 
+Files: plasma-dialer/src/qml/call/Avatar.qml
+       plasma-dialer/src/qml/history/*
+       plasma-dialer/src/qml/HistoryPage.qml
+Copyright: 2015 Marco Martin <mart@kde.org>
+License: LGPL-2+
+
+Files: plasma-dialer/src/qml/components/BottomToolbar.qml
+Copyright: 2021 Alexey Andreyev <aa13q@ya.ru>
+           2021 Devin Lin <devin@kde.org>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: plasma-dialer/src/qml/dialpad/*
+       plasma-dialer/src/qml/DialerPage.qml
+Copyright: 2014 Aaron Seigo <aseigo@kde.org>
+           2014 Marco Martin <mart@kde.org>
+License: LGPL-2+
+
+Files: plasma-dialer/src/qml/settings/SettingsPage.qml
+Copyright: 2021 Devin Lin <devin@kde.org>
+           2022 Michael Lang <criticaltemp@protonmail.com>
+License: GPL-2+
+
+Files: plasma-dialer/src/qml/settings/CallBlockSettingsPage.qml
+Copyright: 2021 Devin Lin <devin@kde.org>
+           2022 Michael Lang <criticaltemp@protonmail.com>
+           2023 Carl Schwan <carl@carlschwan.eu>
+License: GPL-2+
+
+Files: plasma-dialer/src/qml/ImeiSheet.qml
+Copyright: 2021 Smitty van Bodegom <me@smitop.com>
+License: LicenseRef-KDE-Accepted-GPL
+
+Files: plasma-dialer/src/qml/main.qml
+Copyright: 2014 Aaron Seigo <aseigo@kde.org>
+           2014 Marco Martin <mart@kde.org>
+           2021 Alexey Andreyev <aa13q@ya.ru>
+License: LGPL-2+
+
+Files: plasma-dialer/org.kde.plasma.dialer.appdata.xml
+Copyright: 2021 Smitty van Bodegom <me@smitop.com>
+License: CC0-1.0
+
+Files: po/*
+Copyright: 2020-2021 Kristóf Kiszel <kiszel.kristof@gmail.com>
+           2020-2022 KDE Translation Contributors <kde-i18n-doc@kde.org>
+           2020-2024 Freek de Kruijf <freekdekruijf@kde.nl>
+           2020-2024 Iñigo Salvador Azurmendi <xalba@ni.eus>
+           2020-2024 Matjaž Jeran <matjaz.jeran@amis.net>
+           2020-2022 Paolo Zamponi <feus73@gmail.com>
+           2020-2024 Roman Paholik <wizzardsk@gmail.com>
+           2020-2024 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+           2020-2024 Xavier Besnard <xavier.besnard@kde.org>
+           2021 Burkhard Lück <lueck@hube-lueck.de>
+           2021-2023 Alexander Yavorsky <kekcuha@gmail.com>
+           2021-2023 Luiz Fernando Ranghetti <elchevive@opensuse.org>
+           2021-2023 Tommi Nieminen <translator@legisign.org>
+           2021-2023 Yuri Chornoivan <yurchor@ukr.net>
+           2021-2024 A S Alam <aalam.yellow@gmail.com>
+           2021-2024 giovanni <g.sora@tiscali.it>
+           2021-2024 Karl Ove Hufthammer <karl@huftis.org>
+           2021-2024 Kheyyam Gojayev <xxmn77@gmail.com>
+           2021-2024 Kristof Kiszel <ulysses@fsf.hu>           
+           2021-2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+           2021-2024 Matej Mrenica <matejm98mthw@gmail.com>
+           2021-2024 Phu Hung Nguyen <phu.nguyen@kdemail.net>
+           2021-2024 Shinjo Park <kde@peremen.name>
+           2021-2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+           2021-2024 Steve Allewell <steve.allewell@gmail.com>
+           2021-2024 Vincenzo Reale <smart2128vr@gmail.com>
+           2021-2024 Vit Pelcak <vit@pelcak.org>
+           2022 Tyson Tan <tysontan@tysontan.com>
+           2022 Volkan Gezer <volkangezer@gmail.com>
+           2022-2024 Emir SARI <emir_sari@icloud.com>
+           2022-2024 Frederik Schwarzer <schwarzer@kde.org>
+           2022-2024 Japanese KDE translation team <kde-jp@kde.org>
+           2022-2024 José Nuno Coelho Pires <zepires@gmail.com>
+           2022-2024 Sergiu Bivol <sergiu@cip.md>
+           2022-2024 Sveinn í Felli <sv1@fellsnet.is>
+           2022-2024 Temuri Doghonadze <temuri.doghonadze@gmail.com>
+           2022-2024 Wantoyek <wantoyek@gmail.com>
+           2023-2024 Adrián Chaves <adrian@chaves.io>
+           2023-2024 Oliver Kellogg <olivermkellogg@gmail.com
+           2023-2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+           2024 Enol P. <enolp@softastur.org>
+           2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+           2024 Toms Trasuns <toms.trasuns@posteo.net>
+           2024 Yaron Shahrabani <sh.yaron@gmail.com>
+License: LicenseRef-KDE-Accepted-GPL
+           
+Files: po/ca*
+       po/uk/*
+Copyright: 2020-2024 Josep M. Ferrer <txemaq@gmail.com>
+           2020-2024 Yuri Chornoivan <yurchor@ukr.net>
+License: LGPL-2.1+
+
+License: BSD-3-Clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE HOLDERS OR
+ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: CC0-1.0
+ To the extent possible under law, the author(s) have dedicated all
+ copyright and related and neighboring rights to this software to the
+ public domain worldwide. This software is distributed without any
+ warranty.
+ .
+ You should have received a copy of the CC0 Public Domain Dedication
+ along with this software. If not, see
+ <https://creativecommons.org/publicdomain/zero/1.0/>.
+ .
+ On Debian systems, the complete text of the CC0 Public Domain
+ Dedication can be found in `/usr/share/common-licenses/CC0-1.0’.
+
+License: GPL-2
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 2.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: GPL-3
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 3.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ Library General Public License for more details.
+ .
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, see <http://www.gnu.org/licenses/>.
+
+License: LGPL-2.1
+ This package is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; version 2.1.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License can be found in "/usr/share/common-licenses/LGPL-2.1".
+
+License: LGPL-2.1+
+ This package is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License can be found in "/usr/share/common-licenses/LGPL-2.1".
+
+License: LGPL-3
+ This package is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; version 3.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License can be found in "/usr/share/common-licenses/LGPL-3".
+
+License: LicenseRef-KDE-Accepted-GPL
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 3 of
+ the license or (at your option) at any later version that is
+ accepted by the membership of KDE e.V. (or its successor
+ approved by the membership of KDE e.V.), which shall act as a
+ proxy as defined in Section 14 of version 3 of the license.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+License: LicenseRef-KDE-Accepted-LGPL
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 3 of the license or (at your option) any later version
+ that is accepted by the membership of KDE e.V. (or its successor
+ approved by the membership of KDE e.V.), which shall act as a
+ proxy as defined in Section 6 of version 3 of the license.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
