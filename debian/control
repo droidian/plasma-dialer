@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
 Uploaders: Marco Mattiolo <marco.mattiolo@hotmail.it>,
            Arnaud Ferraris <aferraris@debian.org>,
-Build-Depends: cmake (>= 3.16~),
-               debhelper-compat (= 13),
-               extra-cmake-modules (>= 6.5.0~),
+Build-Depends: debhelper-compat (= 13),
+               cmake (>= 3.16~),
+               extra-cmake-modules (>= 6.10.0~),
                kirigami-addons-dev (>= 1.3~),
                libcallaudio-dev (>= 0.1.4~),
                libkf6config-dev (>= 6.5.0~),
@@ -15,16 +15,17 @@ Build-Depends: cmake (>= 3.16~),
                libkf6dbusaddons-dev (>= 6.5.0~),
                libkf6i18n-dev (>= 6.5.0~),
                libkf6kio-dev (>= 6.5.0~),
+               libkf6modemmanagerqt-dev (>= 6.5.0~),
                libkf6notifications-dev (>= 6.5.0~),
                libkf6people-dev (>= 6.5.0~),
                libkf6windowsystem-dev (>= 6.5.0~),
                libphonenumber-dev,
                libwayland-dev,
-               libkf6modemmanagerqt-dev (>= 6.5.0~),
-               pkgconf,
                pkg-kde-tools,
+               pkgconf,
                plasma-wayland-protocols (>= 1.8~),
                qt6-base-dev (>= 6.7.0~),
+               qt6-base-private-dev (>= 6.7.0~),
                qt6-declarative-dev (>= 6.7.0~),
                qt6-wayland-dev (>= 6.7.0~),
                qt6-wayland-dev-tools (>= 6.7.0~),
@@ -37,12 +38,12 @@ Rules-Requires-Root: no
 
 Package: plasma-dialer
 Architecture: any
-Depends: ${misc:Depends},
-         ${shlibs:Depends},
-         callaudiod,
+Depends: callaudiod,
          kwin-wayland (>= 4:6.0~),
          qml6-module-org-kde-people,
          qml6-module-qtquick-localstorage,
+         ${misc:Depends},
+         ${shlibs:Depends},
 Description: Dialer for Plasma Mobile
  This application aims at enabling voice calls features inside
  a Plasma Mobile environment.
