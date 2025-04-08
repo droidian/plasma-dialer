@@ -1,5 +1,7 @@
-plasma-dialer (1:6.2.4-1.1) UNRELEASED; urgency=medium
-  * New changelog entry.
+plasma-dialer (1:6.3.4-1) UNRELEASED; urgency=medium
+
+  [ Marco Mattiolo ]
+  * New upstream release (6.3.4).
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 08 Apr 2025 18:44:03 +0200
 
