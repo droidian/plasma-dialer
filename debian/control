@@ -1,7 +1,7 @@
 Source: plasma-dialer
 Section: kde
 Priority: optional
-Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-lists.debian.net>
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Marco Mattiolo <marco.mattiolo@hotmail.it>,
            Arnaud Ferraris <aferraris@debian.org>,
 Build-Depends: debhelper-compat (= 13),
@@ -34,8 +34,8 @@ Build-Depends: debhelper-compat (= 13),
                qt6-wayland-private-dev (>= 6.7.0~),
 Standards-Version: 4.7.2
 Homepage: https://invent.kde.org/plasma-mobile/plasma-dialer
-Vcs-Browser: https://salsa.debian.org/DebianOnMobile-team/plasma-dialer
-Vcs-Git: https://salsa.debian.org/DebianOnMobile-team/plasma-dialer.git
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/plasma-dialer
+Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/plasma-dialer.git
 Rules-Requires-Root: no
 
 Package: plasma-dialer
