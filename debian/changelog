@@ -6,6 +6,10 @@ plasma-dialer (1:6.3.4-1) UNRELEASED; urgency=medium
   * Bump Standards-Version to 4.7.2 (No changes needed).
   * Add/update Jonathan Esk-Riddell’s key in upstream keyring.
 
+  [ Aurélien COUDERC ]
+  * Use dh-sequence-qmldeps to correctly inject runtime QML
+    dependencies.
+
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 08 Apr 2025 18:44:03 +0200
 
 plasma-dialer (1:6.2.4-1) unstable; urgency=medium

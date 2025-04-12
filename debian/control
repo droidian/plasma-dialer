@@ -5,6 +5,8 @@ Maintainer: DebianOnMobile Maintainers <debian-on-mobile-maintainers@alioth-list
 Uploaders: Marco Mattiolo <marco.mattiolo@hotmail.it>,
            Arnaud Ferraris <aferraris@debian.org>,
 Build-Depends: debhelper-compat (= 13),
+               dh-sequence-kf6,
+               dh-sequence-qmldeps,
                cmake (>= 3.16~),
                extra-cmake-modules (>= 6.10.0~),
                kirigami-addons-dev (>= 1.3~),
@@ -40,9 +42,8 @@ Package: plasma-dialer
 Architecture: any
 Depends: callaudiod,
          kwin-wayland (>= 4:6.0~),
-         qml6-module-org-kde-people,
-         qml6-module-qtquick-localstorage,
          ${misc:Depends},
+         ${qml6:Depends},
          ${shlibs:Depends},
 Description: Dialer for Plasma Mobile
  This application aims at enabling voice calls features inside
