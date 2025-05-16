@@ -1,3 +1,11 @@
+plasma-dialer (1:6.3.5-1) UNRELEASED; urgency=medium
+
+  [ Aurélien COUDERC ]
+  * New upstream release (6.3.5).
+    - Fix: do not track same voicecall object multiple times.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 16 May 2025 18:50:46 +0200
+
 plasma-dialer (1:6.3.4-1) unstable; urgency=medium
 
   * Team upload.
