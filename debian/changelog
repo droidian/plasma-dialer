@@ -1,3 +1,10 @@
+plasma-dialer (1:6.5.0-1) UNRELEASED; urgency=medium
+
+  [ Aurélien COUDERC ]
+  * New upstream release (6.5.0).
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 16 Oct 2025 21:58:30 +0200
+
 plasma-dialer (1:6.4.91-1) experimental; urgency=medium
 
   [ Aurélien COUDERC ]
