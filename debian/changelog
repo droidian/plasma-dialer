@@ -1,10 +1,10 @@
-plasma-dialer (1:6.5.2-1) UNRELEASED; urgency=medium
+plasma-dialer (1:6.5.2-1) unstable; urgency=medium
 
   [ Aurélien COUDERC ]
   * Migrate to debian/watch version 5 syntax.
   * New upstream release (6.5.2).
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 04 Nov 2025 21:17:50 +0100
+ -- Aurélien COUDERC <coucouf@debian.org>  Tue, 04 Nov 2025 21:23:26 +0100
 
 plasma-dialer (1:6.5.1-1) unstable; urgency=medium
 
