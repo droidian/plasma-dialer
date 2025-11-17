@@ -44,7 +44,6 @@ SPDX-License-Identifier: CC0-1.0
   <name xml:lang="tr">Telefon</name>
   <name xml:lang="uk">Телефон</name>
   <name xml:lang="vi">Điện thoại</name>
-  <name xml:lang="x-test">xxPhonexx</name>
   <name xml:lang="zh-CN">电话</name>
   <name xml:lang="zh-TW">電話</name>
   <summary>Send and receive phone calls</summary>
@@ -53,7 +52,7 @@ SPDX-License-Identifier: CC0-1.0
   <summary xml:lang="ca">Envia i rep trucades de telèfon</summary>
   <summary xml:lang="ca-valencia">Envia i rep tocades de telèfon</summary>
   <summary xml:lang="cs">Začínejte a přijímejte telefonní hovory</summary>
-  <summary xml:lang="de">Senden und Empfangen von Telefonanrufen</summary>
+  <summary xml:lang="de">Telefonanrufe tätigen und entgegennehmen</summary>
   <summary xml:lang="en-GB">Send and receive phone calls</summary>
   <summary xml:lang="eo">Sendi kaj ricevi telefon-alvokojn</summary>
   <summary xml:lang="es">Enviar y recibir llamadas de teléfono</summary>
@@ -85,7 +84,6 @@ SPDX-License-Identifier: CC0-1.0
   <summary xml:lang="tr">Arama Yapma ve Gelen Aramaları Alma</summary>
   <summary xml:lang="uk">Надсилання і отримання телефонних дзвінків</summary>
   <summary xml:lang="vi">Gửi và nhận các cuộc gọi điện thoại</summary>
-  <summary xml:lang="x-test">xxSend and receive phone callsxx</summary>
   <summary xml:lang="zh-CN">拨打和接听电话</summary>
   <summary xml:lang="zh-TW">撥打電話與收聽電話</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -107,6 +105,7 @@ SPDX-License-Identifier: CC0-1.0
     <p xml:lang="az">Telefon, smartfonunuzdan asanlıqla zəng etməyə və zəngləri qəbul etməyə imkan verir.</p>
     <p xml:lang="ca">L'aplicació Telèfon permet enviar i rebre fàcilment trucades de telèfon en el vostre telèfon intel·ligent.</p>
     <p xml:lang="ca-valencia">L'aplicació Telèfon permet enviar i rebre amb facilitat tocades de telèfon en el vostre telèfon intel·ligent.</p>
+    <p xml:lang="de">Mit der Telefon-App können Sie ganz einfach Anrufe über Ihr Smartphone tätigen und entgegennehmen.</p>
     <p xml:lang="en-GB">The Phone app lets you easily send and receive phone calls from your smartphone.</p>
     <p xml:lang="eo">La Telefon-app permesas al vi facile sendi kaj ricevi telefonvokojn el via inteligenta telefono.</p>
     <p xml:lang="es">La aplicación de teléfono le permite enviar y recibir llamadas de teléfono de manera fácil desde su teléfono móvil.</p>
@@ -138,7 +137,6 @@ SPDX-License-Identifier: CC0-1.0
     <p xml:lang="tr">Telefon uygulaması, akıllı telefonunuzdan kolaylıkla aramalar yapmanızı ve almanızı sağlar.</p>
     <p xml:lang="uk">Програма «Телефон» надає вам змогу без проблем виконувати та отримувати телефонні дзвінки на вашому смартфоні.</p>
     <p xml:lang="vi">Ứng dụng Điện thoại cho phép bạn dễ dàng gửi và nhận các cuộc gọi từ điện thoại của bạn.</p>
-    <p xml:lang="x-test">xxThe Phone app lets you easily send and receive phone calls from your smartphone.xx</p>
     <p xml:lang="zh-CN">电话应用让您可以轻松地拨打和接听智能手机的电话。</p>
     <p xml:lang="zh-TW">電話應用程式讓您容易地用您的智慧型手機撥打或接收電話。</p>
     <p>Features:</p>
@@ -181,7 +179,6 @@ SPDX-License-Identifier: CC0-1.0
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="vi">Tính năng:</p>
-    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">程序功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
@@ -190,6 +187,7 @@ SPDX-License-Identifier: CC0-1.0
       <li xml:lang="az">Zəng tarixçəsinə baxın və həmin nömrəyə asanlıqla yenidən zəng edin</li>
       <li xml:lang="ca">Vegeu l'historial de trucades i torneu a trucar al mateix número amb facilitat</li>
       <li xml:lang="ca-valencia">Vegeu l'historial de tocades i torneu a tocar al mateix número amb facilitat</li>
+      <li xml:lang="de">Lassen Sie sich Ihre Anrufliste anzeigen und rufen Sie die gleiche Nummer einfach erneut an</li>
       <li xml:lang="en-GB">See your call history and easily call the same number again</li>
       <li xml:lang="eo">Vidu vian vokhistorion kaj facile voku la saman numeron refoje</li>
       <li xml:lang="es">Vea su histórico de llamadas y llame fácilmente de nuevo a un número</li>
@@ -221,7 +219,6 @@ SPDX-License-Identifier: CC0-1.0
       <li xml:lang="tr">Arama geçmişinizi görün ve aynı numarayı kolaylıkla yeniden arayın</li>
       <li xml:lang="uk">Перегляд журналу дзвінків та просте повторне набирання номерів</li>
       <li xml:lang="vi">Xem lịch sử gọi và dễ dàng gọi lại cùng số đó</li>
-      <li xml:lang="x-test">xxSee your call history and easily call the same number againxx</li>
       <li xml:lang="zh-CN">查看通话记录，并轻松地再次呼叫相同的号码</li>
       <li xml:lang="zh-TW">檢視撥號歷史並重新撥打同一個號碼</li>
       <li>Manage your contacts that have a phone number set</li>
@@ -229,6 +226,7 @@ SPDX-License-Identifier: CC0-1.0
       <li xml:lang="az">Telefon nömrəsini saxladığınız şəxslər siyahısını idarə edin</li>
       <li xml:lang="ca">Gestioneu els contactes que tenen un número de telèfon establert</li>
       <li xml:lang="ca-valencia">Gestioneu els contactes que tenen un número de telèfon establit</li>
+      <li xml:lang="de">Verwalten Sie Ihre Kontakte, für die eine Telefonnummer hinterlegt ist</li>
       <li xml:lang="en-GB">Manage your contacts that have a phone number set</li>
       <li xml:lang="eo">Mastrumu viajn kontaktojn por kiuj metiĝis telefonnumero.</li>
       <li xml:lang="es">Administre contactos que tengan un conjunto de números de teléfono</li>
@@ -260,7 +258,6 @@ SPDX-License-Identifier: CC0-1.0
       <li xml:lang="tr">Telefon numarası kayıtlı olan kişilerinizi yönetin</li>
       <li xml:lang="uk">Керування записами контактів, для яких встановлено номер телефону</li>
       <li xml:lang="vi">Quản lí các liên hệ đã đặt số điện thoại</li>
-      <li xml:lang="x-test">xxManage your contacts that have a phone number setxx</li>
       <li xml:lang="zh-CN">管理有电话号码的联系人</li>
       <li xml:lang="zh-TW">管理有設定電話號碼的聯絡人</li>
     </ul>
@@ -274,6 +271,7 @@ SPDX-License-Identifier: CC0-1.0
       <caption xml:lang="az">Nömrə yığma səhifəsi</caption>
       <caption xml:lang="ca">La pàgina del marcador</caption>
       <caption xml:lang="ca-valencia">La pàgina del marcador</caption>
+      <caption xml:lang="de">Nummerneingabe</caption>
       <caption xml:lang="en-GB">The dialer page</caption>
       <caption xml:lang="eo">La telefonila paĝo</caption>
       <caption xml:lang="es">La página del marcador</caption>
@@ -305,7 +303,6 @@ SPDX-License-Identifier: CC0-1.0
       <caption xml:lang="tr">Çevirici</caption>
       <caption xml:lang="uk">Сторінка набирання номеру</caption>
       <caption xml:lang="vi">Trang quay số</caption>
-      <caption xml:lang="x-test">xxThe dialer pagexx</caption>
       <caption xml:lang="zh-CN">拨号器页面</caption>
       <caption xml:lang="zh-TW">撥號頁面</caption>
     </screenshot>
@@ -316,6 +313,7 @@ SPDX-License-Identifier: CC0-1.0
       <caption xml:lang="az">Səsli poçt nömrəsinə zəng edin</caption>
       <caption xml:lang="ca">Trucada a la bústia de veu</caption>
       <caption xml:lang="ca-valencia">Tocada a la bústia de veu</caption>
+      <caption xml:lang="de">Abrufen der Sprachnachrichten</caption>
       <caption xml:lang="en-GB">Calling voicemail</caption>
       <caption xml:lang="eo">Alvokante voĉpoŝton</caption>
       <caption xml:lang="es">Llamando al buzón de voz</caption>
@@ -347,7 +345,6 @@ SPDX-License-Identifier: CC0-1.0
       <caption xml:lang="tr">Telesekreteri arama</caption>
       <caption xml:lang="uk">Голосова пошта</caption>
       <caption xml:lang="vi">Gọi hộp thư thoại</caption>
-      <caption xml:lang="x-test">xxCalling voicemailxx</caption>
       <caption xml:lang="zh-CN">呼叫语音信箱</caption>
       <caption xml:lang="zh-TW">撥打語音信箱</caption>
     </screenshot>
@@ -357,9 +354,12 @@ SPDX-License-Identifier: CC0-1.0
   </provides>
   <launchable type="desktop-id">org.kde.plasma.dialer.desktop</launchable>
   <releases>
-    <release version="6.3.6" date="2025-07-08"/>
-    <release version="6.3.5" date="2025-05-06"/>
-    <release version="6.3.4" date="2025-04-01"/>
-    <release version="6.3.3" date="2025-03-11"/>
+    <release version="6.5.2" date="2025-11-04"/>
+    <release version="6.5.1" date="2025-10-28"/>
+    <release version="6.5.0" date="2025-10-21"/>
+    <release version="6.4.5" date="2025-09-09"/>
   </releases>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
 </component>
